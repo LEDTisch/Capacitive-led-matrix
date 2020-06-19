@@ -5,6 +5,8 @@ sensor zeile2 = sensor(4,5);
 sensor zeile3 = sensor(6,7);
 sensor zeile4 = sensor(8,9);
 
+sensor spalte1 = sensor(10,11);
+sensor spalte2 = sensor(12,13);
 
 int zykluscounter = 0;
 int zyklussumme = 0;
