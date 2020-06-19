@@ -25,6 +25,9 @@ void setup()
   zeile3.init();
   zeile4.init();
 
+  spalte1.init();
+  spalte2.init();
+
 
 }
 
@@ -33,8 +36,11 @@ float zeileget2=-1;
 float zeileget3=-1;
 float zeileget4=-1;
 
+float spalteget1=-1;
+float spalteget2=-1;
 
 float biggest=-5;
+float spaltenbiggest=-5;
 
 void loop()
 {
@@ -45,9 +51,14 @@ zeileget2=zeile2.doZyklus();
 zeileget3=zeile3.doZyklus();
 zeileget4=zeile4.doZyklus();
 
+spalteget1=spalte1.doZyklus();
+spalteget2=spalte2.doZyklus();
+
+
 
 
   biggest=0;
+  spaltenbiggest=0;
 
 if(zeile1.istouched()){
   if(zeileget1<biggest)
@@ -86,5 +97,25 @@ Serial.println("zeile3");
 if(zeileget4==biggest){
 Serial.println("zeile4");
 }
+
+if(spalte1.istouched()){
+  if(spalteget1<spaltenbiggest){
+    spaltenbiggest=spalteget1;
+  }
+}
+if(spalte2.istouched()){
+  if(spalteget2<spaltenbiggest){
+    spaltenbiggest=spalteget2;
+  }
+}
+if(spalteget1==spaltenbiggest){
+  Serial.println("spalte1");
+
+}
+if(spalteget2==spaltenbiggest){
+  Serial.println("spalte2");
+
+}
+
 
 }
