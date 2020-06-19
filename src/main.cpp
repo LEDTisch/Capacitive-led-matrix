@@ -1,4 +1,10 @@
 #include <Arduino.h>
+#include "sensor.h"
+sensor zeile1 = sensor(2,3);
+sensor zeile2 = sensor(4,5);
+sensor zeile3 = sensor(6,7);
+sensor zeile4 = sensor(8,9);
+
 
 int zykluscounter = 0;
 int zyklussumme = 0;
@@ -10,97 +16,73 @@ void setup()
 {
 
   Serial.begin(9600);
-  pinMode(2, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(13, OUTPUT); //Status led
-  delay(500);          //default 500
-}
-
-void isjustpressed()
-{
-  //Serial.println("Just pressed");
-}
-
-void zyklus()
-{
-  pinMode(4, INPUT);
-  digitalWrite(2, HIGH);  //DIrekte Verbindung auf Input die andere auf 5V um zu laden
-  delayMicroseconds(100); //Default 250 bester Wert 200
-  digitalWrite(2, LOW);
-  zykluscounter++;
-  pinMode(4, OUTPUT); //
-  digitalWrite(4, LOW);
-  pinMode(2, INPUT);
-  delayMicroseconds(100); //Default 250 bester wert 200
-}
-
-void mangepress()
-{
-  if (schwellwert > zykluscounter)
-  {
-
-    digitalWrite(13, HIGH);
-
-    if (ispressed != 1)
-    {
-      ispressed = 1;
-      isjustpressed();
-    }
-  }
-  else
-  {
-    ispressed = 0;
-    digitalWrite(13, LOW);
-  }
-}
-
-void reset()
-{
-  pinMode(2, OUTPUT);
-  pinMode(4, OUTPUT);
-  delay(100); //Zeit zum Entladen default 500 bester wert 100
-}
-
-void findschwelle()
-{
-  schwellwert = (zyklussumme / initruns) * 0.982f; //Entscheidender Wert       Default: 0.98 besster wert 0.982
-  Serial.println(schwellwert);
-  initfinish = 1;
-}
-
-void inputhandler()
-{
   
-  if (initfinish == 1)
-  {
-    Serial.println(zykluscounter);
-    mangepress();
-  }
+  pinMode(13, OUTPUT); //Status led
+  zeile1.init();
+  zeile2.init();
+  zeile3.init();
+  zeile4.init();
 
-  zyklussumme += zykluscounter;
-  initruns++;
-  zykluscounter = 0;
 
-  if (initruns > 10 && initfinish == 0)
-  { //default 10
-
-    findschwelle();
-  }
-
-  reset();
 }
+
+float zeileget1=-1;
+float zeileget2=-1;
+float zeileget3=-1;
+float zeileget4=-1;
+
+
+float biggest=-5;
 
 void loop()
 {
 
-  zyklus(); 
 
-  if (digitalRead(2) == HIGH)
+zeileget1=zeile1.doZyklus();
+zeileget2=zeile2.doZyklus();
+zeileget3=zeile3.doZyklus();
+zeileget4=zeile4.doZyklus();
+
+
+
+  biggest=0;
+
+if(zeile1.istouched()){
+  if(zeileget1<biggest)
   {
-
-    inputhandler();
+    biggest=zeileget1;
   }
+}
+if(zeile2.istouched()){
+  if(zeileget2<biggest)
+  {
+    biggest=zeileget2;
+  }
+}
+if(zeile3.istouched()){
+  if(zeileget3<biggest)
+  {
+    biggest=zeileget3;
+  }
+}
+if(zeile4.istouched()){
+  if(zeileget4<biggest)
+  {
+    biggest=zeileget4;
+  }
+}
 
-
+if(zeileget1==biggest){
+Serial.println("zeile1");
+}
+if(zeileget2==biggest){
+Serial.println("zeile2");
+}
+if(zeileget3==biggest){
+Serial.println("zeile3");
+} 
+if(zeileget4==biggest){
+Serial.println("zeile4");
+}
 
 }
