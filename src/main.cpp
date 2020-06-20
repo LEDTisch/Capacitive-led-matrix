@@ -1,10 +1,5 @@
-#include "Arduino.h"
+#include <Arduino.h>
 #include "sensor.h"
-//#include "LedTischKapazitiv.h"
-
-//LedTischKapazitiv touch = LedTischKapazitiv(10,15);
-
-
 sensor zeile1 = sensor(2,3);
 sensor zeile2 = sensor(4,5);
 sensor zeile3 = sensor(6,7);
@@ -19,7 +14,6 @@ int initruns = 0;
 float schwellwert = 0;
 int initfinish = 0;
 int ispressed = 0;
-int giveout=0;
 void setup()
 {
 
@@ -60,12 +54,8 @@ zeileget4=zeile4.doZyklus();
 spalteget1=spalte1.doZyklus();
 spalteget2=spalte2.doZyklus();
 
-if(zeile1.initfinish==1&&zeile2.initfinish==1&&zeile3.initfinish==1&&zeile4.initfinish==1&&spalte1.initfinish==1&&spalte2.initfinish==1) {
 
-if(giveout==0) {
-  giveout=1;
-  Serial.println("Init finish");
-}
+
 
   biggest=0;
   spaltenbiggest=0;
@@ -124,8 +114,6 @@ if(spalteget1==spaltenbiggest){
 }
 if(spalteget2==spaltenbiggest){
   Serial.println("spalte2");
-
-}
 
 }
 

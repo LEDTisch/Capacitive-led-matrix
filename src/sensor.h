@@ -1,7 +1,4 @@
 #include<Arduino.h>
-#ifndef SENSOR_H
-#define SENSOR_H
-
 class sensor{
 private:
     int pin1;
@@ -27,6 +24,4 @@ public:
     float getSchwelle();
     boolean istouched();
     float doZyklus();
-    
 };
-#endif
