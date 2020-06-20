@@ -1,8 +1,9 @@
 #include "Arduino.h"
 #include "sensor.h"
-//#include "LedTischKapazitiv.h"
+#include "LedTischKapazitiv.h"
 
-//LedTischKapazitiv touch = LedTischKapazitiv(10,15);
+LEDTischKapazitiv touch = LEDTischKapazitiv(4,15);
+
 
 
 sensor zeile1 = sensor(2,3);
@@ -24,6 +25,10 @@ void setup()
 {
 
   Serial.begin(9600);
+
+    touch.setwidthpins(8,2,3,4,5,6,7,8,9);
+    touch.init();
+
   
   pinMode(13, OUTPUT); //Status led
   zeile1.init();

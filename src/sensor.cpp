@@ -50,7 +50,7 @@ void sensor::reset()
 
 void sensor::findschwelle()
 {
-  schwellwert = (zyklussumme / initruns) * 0.97f; //Entscheidender Wert       Default: 0.98 besster wert 0.982
+  schwellwert = (zyklussumme / initruns) * 0.991f; //Entscheidender Wert       Default: 0.98 besster wert 0.982
   //Serial.println(schwellwert);
   initfinish = 1;
 }
@@ -114,4 +114,21 @@ float sensor::doZyklus()
     }
     return inputhandler()-getSchwelle();
 
+}
+void sensor::setPins(int pin1,int pin2){
+  this->pin1=pin1;
+  this->pin2=pin2;
+}
+void sensor::setPin1(int pin1){
+this->pin1=pin1;
+}
+void sensor::setPin2(int pin2){
+  this->pin2=pin2;
+}
+
+int sensor::getPin1(){
+  return this->pin1;
+}
+int sensor::getPin2(){
+  return this->pin2;
 }

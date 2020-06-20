@@ -27,6 +27,11 @@ public:
     float getSchwelle();
     boolean istouched();
     float doZyklus();
+    void setPins(int pin1,int pin2);
+    void setPin1(int pin1);
+    void setPin2(int pin2);
+    int getPin1();
+    int getPin2();
     
 };
 #endif
