@@ -1,4 +1,4 @@
-#include<Arduino.h>
+#include <Arduino.h>
 #include "sensor.h"
 sensor::sensor(int pin1, int pin2){ //pin1 ist der Pin ohne das Kabel pin 2 mit
 this->pin1=pin1;
