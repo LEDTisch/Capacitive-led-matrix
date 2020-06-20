@@ -10,6 +10,7 @@ class LEDTischKapazitiv{
     LEDTischKapazitiv(int width,int height);
     sensor touchwidth[];
     float zeileget[];
+    int touchedlines[];
     void setwidthpins(int pins,...);
     void init();
     void update();

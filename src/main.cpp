@@ -56,7 +56,8 @@ float spaltenbiggest=-5;
 void loop()
 {
 
-
+touch.update();
+/*
 zeileget1=zeile1.doZyklus();
 zeileget2=zeile2.doZyklus();
 zeileget3=zeile3.doZyklus();
@@ -134,5 +135,5 @@ if(spalteget2==spaltenbiggest){
 
 }
 
-
+*/
 }

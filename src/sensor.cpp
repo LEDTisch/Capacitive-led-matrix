@@ -50,7 +50,7 @@ void sensor::reset()
 
 void sensor::findschwelle()
 {
-  schwellwert = (zyklussumme / initruns) * 0.991f; //Entscheidender Wert       Default: 0.98 besster wert 0.982
+  schwellwert = (zyklussumme / initruns) * 0.987f; //Entscheidender Wert       Default: 0.98 besster wert 0.982
   //Serial.println(schwellwert);
   initfinish = 1;
 }
