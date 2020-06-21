@@ -30,31 +30,23 @@ touchwidth[i]=sensor(0,0);
 
 
 for(int i=0;i<width;i++){
+    Serial.print("sensor : ");
     Serial.print(i);
-    Serial.print(" : ");
+    Serial.print("pin : ");
     Serial.println(touchwidth[i].getPin1());
 }
 
 }
 void LEDTischKapazitiv::init(){
 
-    for(int i=0;i<width;i++){
-    Serial.print(i);
-    Serial.print(" : ");
-    Serial.println(touchwidth[i].getPin1());
-}
+
 
     for(int i=0;i<width;i++){
         touchwidth[i].init();
-        Serial.println("blub");
     }
 
 
-    for(int i=0;i<width;i++){
-    Serial.print(i);
-    Serial.print(" : ");
-    Serial.println(touchwidth[i].getPin1());
-}
+
 }
 void LEDTischKapazitiv::update(){
         float zeileget[300];
@@ -63,14 +55,13 @@ void LEDTischKapazitiv::update(){
 
             float temp=0;
             temp=touchwidth[i].doZyklus();
-                    Serial.println(temp);
-                    zeileget[i]=12345;
+                    zeileget[i]=temp;
+
+                    if(touchwidth[i].istouched()){
+                        Serial.println("touch");
+                    }
         }
-for(int i=0;i<width;i++){
-    Serial.print(i);
-    Serial.print(" : ");
-    Serial.println(touchwidth[i].getPin1());
-}
+
    /* 
     for(int i=0;i<width;i++){
         zeileget[i]=touchwidth[i].doZyklus();
