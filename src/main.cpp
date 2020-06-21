@@ -134,6 +134,6 @@ if(spalteget2==spaltenbiggest){
 }
 
 }
-
 */
+
 }
