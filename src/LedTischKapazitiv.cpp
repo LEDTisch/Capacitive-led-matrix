@@ -50,11 +50,9 @@ void LEDTischKapazitiv::update(){
     
     for(int i=0;i<width;i++){
         zeileget[i]=touchwidth[i].doZyklus();
-        if(touchwidth[i].getinitfinish==1){
+        if(touchwidth[i].getinitfinish()==1){
             Serial.println("initfinisched");
-            if(touchwidth[i].istouched()){
-                        Serial.println("irgentwas getoucht");
-        }
+          
         }else{
                     Serial.println("init");
 
