@@ -2,7 +2,7 @@
 #include "sensor.h"
 #include "LedTischKapazitiv.h"
 
-LEDTischKapazitiv touch = LEDTischKapazitiv(4,15);
+LEDTischKapazitiv touch = LEDTischKapazitiv(3,3);
 
 
 /*
@@ -26,7 +26,7 @@ void setup()
 
   Serial.begin(9600);
 
-    touch.setwidthpins(8,2,3,4,5,6,7,8,9);
+    touch.setwidthpins(6,2,3,4,5,6,7);
     touch.init();
 
   
