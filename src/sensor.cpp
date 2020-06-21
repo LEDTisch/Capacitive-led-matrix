@@ -132,3 +132,7 @@ int sensor::getPin1(){
 int sensor::getPin2(){
   return this->pin2;
 }
+
+int sensor::getinitfinish(){
+  return initfinish;
+}

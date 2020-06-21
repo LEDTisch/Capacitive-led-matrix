@@ -40,14 +40,17 @@ void LEDTischKapazitiv::update(){
     //Serial.println(sizeof(touchedlines));
     //int tempanzahl=0;
 
-    touchwidth[0].doZyklus();
+ /*   touchwidth[0].doZyklus();
+    touchwidth[1].doZyklus();
    // Serial.println(touchwidth[0].doZyklus());
-    Serial.println(touchwidth[0].initfinish);
-    /*
+   Serial.print("init1:  ");
+    Serial.println(touchwidth[0].getinitfinish());
+       Serial.print("init2:  ");
+    Serial.println(touchwidth[1].getinitfinish());*/
+    
     for(int i=0;i<width;i++){
         zeileget[i]=touchwidth[i].doZyklus();
-        Serial.println(zeileget[0]);
-        if(touchwidth[i].initfinish==1){
+        if(touchwidth[i].getinitfinish==1){
             Serial.println("initfinisched");
             if(touchwidth[i].istouched()){
                         Serial.println("irgentwas getoucht");
@@ -56,7 +59,7 @@ void LEDTischKapazitiv::update(){
                     Serial.println("init");
 
         }
-        */
+        
 
         /*
         if(touchwidth[i].initfinish==1){
@@ -70,6 +73,6 @@ void LEDTischKapazitiv::update(){
         */
         
     
-
+    }
 
 }

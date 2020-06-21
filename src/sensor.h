@@ -6,13 +6,15 @@ class sensor{
 private:
     int pin1;
     int pin2;
-public:
-    int zykluscounter=0;
+
+        int zykluscounter=0;
     int schwellwert=0;
     int ispressed=0;
     int zyklussumme=0;
     int initruns=0;
     int initfinish=0;
+public:
+
     boolean touched=false;
 
     sensor(int pin1, int pin2);
@@ -32,6 +34,7 @@ public:
     void setPin2(int pin2);
     int getPin1();
     int getPin2();
+    int getinitfinish();
     
 };
 #endif

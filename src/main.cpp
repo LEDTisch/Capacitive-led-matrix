@@ -5,7 +5,7 @@
 LEDTischKapazitiv touch = LEDTischKapazitiv(4,15);
 
 
-
+/*
 sensor zeile1 = sensor(2,3);
 sensor zeile2 = sensor(4,5);
 sensor zeile3 = sensor(6,7);
@@ -13,7 +13,7 @@ sensor zeile4 = sensor(8,9);
 
 sensor spalte1 = sensor(10,11);
 sensor spalte2 = sensor(12,13);
-
+*/
 int zykluscounter = 0;
 int zyklussumme = 0;
 int initruns = 0;
@@ -31,6 +31,7 @@ void setup()
 
   
   pinMode(13, OUTPUT); //Status led
+  /*
   zeile1.init();
   zeile2.init();
   zeile3.init();
@@ -38,7 +39,7 @@ void setup()
 
   spalte1.init();
   spalte2.init();
-
+*/
 
 }
 
