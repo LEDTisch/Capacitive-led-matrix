@@ -49,7 +49,8 @@ void LEDTischKapazitiv::init(){
 
 }
 void LEDTischKapazitiv::update(){
-        float zeileget[300];
+        
+
         int zaeler=0;
 
 
@@ -63,7 +64,7 @@ void LEDTischKapazitiv::update(){
                     if(touchwidth[i].istouched()){
                         Serial.print("touch: ");
                         Serial.println(i);
-                        touchedlines[zaeler]=i;
+                        touchedlines[zaeler]=4321;
                         //zaeler++;
                     }
                     }else{

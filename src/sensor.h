@@ -16,7 +16,10 @@ private:
 public:
 
     boolean touched=false;
+sensor() : pin1(0) , pin2(0)  // class members initialization
+{
 
+}
     sensor(int pin1, int pin2);
     void init();
     void zyklus();
