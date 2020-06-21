@@ -12,6 +12,7 @@ void LEDTischKapazitiv::setwidthpins(int pins,...){
     va_start(pinlist, pins);
     
     for (int i = 0; i < pins/2; i++) {
+touchwidth[i]=sensor(0,0);
         for(int j=0;j<2;j++){
 
         if(j==0){
@@ -22,63 +23,65 @@ void LEDTischKapazitiv::setwidthpins(int pins,...){
             touchwidth[i].setPin2(va_arg(pinlist, int));
 
         }
-        Serial.println("templajsdflkj::" );
-        Serial.println(i);
-        Serial.println(touchwidth[i].getPin1());
    }
     }
 	
    va_end(pinlist);
 
 
+for(int i=0;i<width;i++){
+    Serial.print(i);
+    Serial.print(" : ");
+    Serial.println(touchwidth[i].getPin1());
+}
+
 }
 void LEDTischKapazitiv::init(){
+
+    for(int i=0;i<width;i++){
+    Serial.print(i);
+    Serial.print(" : ");
+    Serial.println(touchwidth[i].getPin1());
+}
 
     for(int i=0;i<width;i++){
         touchwidth[i].init();
         Serial.println("blub");
     }
+
+
+    for(int i=0;i<width;i++){
+    Serial.print(i);
+    Serial.print(" : ");
+    Serial.println(touchwidth[i].getPin1());
+}
 }
 void LEDTischKapazitiv::update(){
-    //Serial.println("groese");
-    //Serial.println(sizeof(touchedlines));
-    //int tempanzahl=0;
- 
- /*   touchwidth[0].doZyklus();
-    touchwidth[1].doZyklus();
-   // Serial.println(touchwidth[0].doZyklus());
-   Serial.print("init1:  ");
-    Serial.println(touchwidth[0].getinitfinish());
-       Serial.print("init2:  ");
-    Serial.println(touchwidth[1].getinitfinish());*/
-    
+        float zeileget[300];
+
+        for(int i=0;i<width;i++){
+
+            float temp=0;
+            temp=touchwidth[i].doZyklus();
+                    Serial.println(temp);
+                    zeileget[i]=12345;
+        }
+for(int i=0;i<width;i++){
+    Serial.print(i);
+    Serial.print(" : ");
+    Serial.println(touchwidth[i].getPin1());
+}
+   /* 
     for(int i=0;i<width;i++){
         zeileget[i]=touchwidth[i].doZyklus();
         Serial.print("pin1: ");
         Serial.print(i);
         Serial.print(" ");
-        Serial.println(touchwidth[i].getPin1());
-        if(touchwidth[i].getinitfinish()==1){
-           // Serial.println("initfinisched");
-          
-        }else{
-                   // Serial.println("init");
+        Serial.println(touchwidth[0].getPin1());
 
-        }
         
 
-        /*
-        if(touchwidth[i].initfinish==1){
-            Serial.println("initfinisch");
-
-        if(touchwidth[i].istouched()){
-            touchedlines[tempanzahl]=i;
-            Serial.println("touched");
-            tempanzahl++;
-        }
-        */
-        
     
     }
-
+*/
 }

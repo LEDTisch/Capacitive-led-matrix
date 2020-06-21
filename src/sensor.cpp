@@ -112,7 +112,8 @@ float sensor::doZyklus()
     while(digitalRead(pin1) != HIGH){
         zyklus();
     }
-    return inputhandler()-getSchwelle();
+    float temp=inputhandler()-getSchwelle();
+    return temp;
 
 }
 void sensor::setPins(int pin1,int pin2){
