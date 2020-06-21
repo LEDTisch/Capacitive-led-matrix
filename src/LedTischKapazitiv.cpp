@@ -11,8 +11,9 @@ void LEDTischKapazitiv::setwidthpins(int pins,...){
     va_list pinlist;
     va_start(pinlist, pins);
     
-    for (int i = 0; i < pins; i++) {
+    for (int i = 0; i < pins/2; i++) {
         for(int j=0;j<2;j++){
+
         if(j==0){
             touchwidth[i].setPin1(va_arg(pinlist, int));
 
@@ -21,6 +22,9 @@ void LEDTischKapazitiv::setwidthpins(int pins,...){
             touchwidth[i].setPin2(va_arg(pinlist, int));
 
         }
+        Serial.println("templajsdflkj::" );
+        Serial.println(i);
+        Serial.println(touchwidth[i].getPin1());
    }
     }
 	
@@ -39,7 +43,7 @@ void LEDTischKapazitiv::update(){
     //Serial.println("groese");
     //Serial.println(sizeof(touchedlines));
     //int tempanzahl=0;
-
+ 
  /*   touchwidth[0].doZyklus();
     touchwidth[1].doZyklus();
    // Serial.println(touchwidth[0].doZyklus());
@@ -50,11 +54,15 @@ void LEDTischKapazitiv::update(){
     
     for(int i=0;i<width;i++){
         zeileget[i]=touchwidth[i].doZyklus();
+        Serial.print("pin1: ");
+        Serial.print(i);
+        Serial.print(" ");
+        Serial.println(touchwidth[i].getPin1());
         if(touchwidth[i].getinitfinish()==1){
-            Serial.println("initfinisched");
+           // Serial.println("initfinisched");
           
         }else{
-                    Serial.println("init");
+                   // Serial.println("init");
 
         }
         
