@@ -27,6 +27,7 @@ void setup()
   Serial.begin(9600);
 
     touch.setwidthpins(6,2,3,4,5,6,7);
+    touch.setheightpins(6,8,9,10,11,12,13);
     touch.init();
 
   
