@@ -31,7 +31,6 @@ void setup()
     touch.init();
 
   
-  pinMode(13, OUTPUT); //Status led
   /*
   zeile1.init();
   zeile2.init();

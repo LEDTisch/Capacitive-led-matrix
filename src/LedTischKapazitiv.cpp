@@ -76,7 +76,7 @@ void LEDTischKapazitiv::init(){
         touchwidth[i].init();
     }
         for(int i=0;i<height;i++){
-        touchwidth[i].init();
+        touchheight[i].init();
     }
 
 
@@ -86,7 +86,7 @@ void LEDTischKapazitiv::update(){
         
 
         int zaeler=0;
-
+Serial.println("/////////////////////////");
 
                 for(int i=0;i<height;i++){
 
@@ -94,11 +94,11 @@ void LEDTischKapazitiv::update(){
             temp=touchheight[i].doZyklus();
                     spalteget[i]=temp;
                     if(touchheight[i].getinitfinish()==1){
-    
+                            Serial.println(touchheight[i].istouched());
                     if(touchheight[i].istouched()){
-                        Serial.print("spalte: ");
-                        Serial.println(i);
-                        touchedcolumns[zaeler]=4321;
+                        //Serial.print("spalte: ");
+                        //Serial.println(i);
+                        //touchedcolumns[zaeler]=4321;
                         //zaeler++;
                     }
                     }else{
@@ -113,9 +113,9 @@ void LEDTischKapazitiv::update(){
                     if(touchwidth[i].getinitfinish()==1){
     
                     if(touchwidth[i].istouched()){
-                        Serial.print("zeile: ");
-                        Serial.println(i);
-                        touchedlines[zaeler]=4321;
+                        //Serial.print("zeile: ");
+                        //Serial.println(i);
+                        //touchedlines[zaeler]=4321;
                         //zaeler++;
                     }
                     }else{
