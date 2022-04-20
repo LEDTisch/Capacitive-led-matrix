@@ -1,2 +1,2 @@
-# Capactivie led matrix
+# Capcitive led matrix
 Some tests to add capacitive touch to the led matrix
